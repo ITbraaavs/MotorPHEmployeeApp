@@ -1,0 +1,43 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author mjbie
+ */
+public class Main {
+    public static void main(String [] args) {
+        Employee emp = new Employee();
+        emp.employeeNumber = "EMP001";
+        emp.employeeName = "Juan Dela Cruz";
+        emp.hourlyRate = 250.0;
+        emp.position = "Clerk";
+        
+        Attendance att = new Attendance();
+        att.timeIN = "08:00";
+        att.timeOut = "17:00";
+        
+        Payroll_backup payroll = new Payroll_backup();
+        
+        Deduction ded = new Deduction();
+        ded.sss = 100.0;
+        ded.philHealth = 50.0;
+        ded.pagIbig = 20.0;
+        ded.withholdingTax = 30.0;
+        
+        att.computeHours();
+        payroll.calculateGross(emp, att);
+        ded.calculateDeduct();
+        payroll.calculateNet(payroll.grossSalary,ded);
+        
+        System.out.println("----------------Payslip----------------");
+        emp.displayInfo();
+        System.out.println("Gross Salary: P" + payroll.grossSalary);
+        System.out.println("Total Deductions: P" + ded.totalDeduction);
+        System.out.println("Net Salary: P"  + payroll.netSalary);
+        System.out.println("-------------------------------------------");
+        
+    }
+}

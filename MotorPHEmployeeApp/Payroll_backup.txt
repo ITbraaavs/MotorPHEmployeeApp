@@ -1,0 +1,24 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author mjbie
+ */
+public class Payroll_backup {
+    public double grossSalary;
+    public double netSalary;
+    public double deductions;
+    
+    public void calculateGross(Employee emp, Attendance att) {
+        grossSalary = emp.hourlyRate * att.hoursWorked;
+        System.out.println("Gross Salary: " + grossSalary);
+    }
+    public void calculateNet(double gross, Deduction ded)  {
+        //Net salary = gross salary- total deductions
+        netSalary = gross - ded.totalDeduction;
+        System.out.println("Net Salary: "+ netSalary);
+    }
+}
